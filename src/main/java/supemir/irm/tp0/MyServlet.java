@@ -16,7 +16,9 @@ public class MyServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().println("<h1>Hello Servlet</h1>");
+        String name = req.getParameter("name");
+        req.setAttribute("name", name);
+        req.getRequestDispatcher("hello.jsp").forward(req,resp);
     }
 
     @Override
